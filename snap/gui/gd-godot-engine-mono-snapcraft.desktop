@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=gd-godot-engine-mono-snapcraft
+Icon=${SNAP}/meta/gui/icon.png
+Categories=Development;
+Name=Godot Engine C#
+Comment=Godot Engine C# ${SNAPCRAFT_PROJECT_VERSION}
