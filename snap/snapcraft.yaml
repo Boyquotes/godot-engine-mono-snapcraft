@@ -89,6 +89,7 @@ parts:
     stage-packages:
       - libgtk-3-0
       - libasound2
+      - mono-complete
 
 package-repositories:
   - type: apt
