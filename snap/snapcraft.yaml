@@ -95,7 +95,7 @@ parts:
       - libasound2
       - mono-complete
       - msbuild
-      - libmonosgen-2.0
+      - libmonosgen-2.0-dev
 
 package-repositories:
   - type: apt
