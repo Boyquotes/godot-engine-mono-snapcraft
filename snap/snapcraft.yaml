@@ -49,7 +49,7 @@ parts:
       pip3 --version
       scons --version
       mono --version
-      msbuild --version
+      msbuild -version
       dotnet --list-sdks
       
       # Scons
