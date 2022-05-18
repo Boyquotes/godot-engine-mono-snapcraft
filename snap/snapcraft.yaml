@@ -56,6 +56,8 @@ parts:
       scons -j$(nproc) p=linuxbsd target=release_debug tools=true tests=false module_mono_enabled=yes mono_static=yes mono_glue=no
       xvfb-run ./bin/godot.x11.opt.tools.64.mono --generate-mono-glue modules/mono/glue || true
       scons -j$(nproc) p=linuxbsd target=release_debug tools=true tests=false module_mono_enabled=yes mono_static=yes mono_glue=yes
+      scons -j$(nproc) p=linuxbsd target=release_debug tools=no module_mono_enabled=yes
+      scons -j$(nproc) p=linuxbsd target=release tools=no module_mono_enabled=yes
       
       cd bin
       mv godot.x11.opt.tools.64.mono godot-engine-mono
