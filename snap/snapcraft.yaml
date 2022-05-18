@@ -49,6 +49,8 @@ parts:
       pip3 --version
       scons --version
       mono --version
+      msbuild --version
+      dotnet --list-sdks
       
       # Scons
       scons -j$(nproc) p=linuxbsd target=release_debug tools=true tests=false module_mono_enabled=yes mono_static=yes mono_glue=no
@@ -87,11 +89,13 @@ parts:
       - python3
       - python3-pip
       - msbuild
+      - libmonosgen-2.0-dev
     stage-packages:
       - libgtk-3-0
       - libasound2
       - mono-complete
       - msbuild
+      - libmonosgen-2.0
 
 package-repositories:
   - type: apt
