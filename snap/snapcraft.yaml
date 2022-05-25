@@ -12,6 +12,10 @@ adopt-info: gd-godot-engine-mono-snapcraft
 architectures:
   - build-on: amd64
 
+layout:
+  /usr/bin/mono:
+    bind: $SNAP/usr/bin/mono
+
 apps:      
   gd-godot-engine-mono-snapcraft:
     extensions: [gnome-3-38]
