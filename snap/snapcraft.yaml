@@ -120,7 +120,6 @@ parts:
       - libvorbis0a
       - libvorbisenc2
       - libvorbisfile3
-      - libwebp5
       - mono-complete
       - mono-devel
       - msbuild
