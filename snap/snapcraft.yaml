@@ -13,8 +13,10 @@ architectures:
   - build-on: amd64
 
 layout:
-  /usr:
-    bind: $SNAP/usr
+  /usr/bin/mono:
+    symlink: $SNAP/usr/bin/mono
+  /usr/lib/mono:
+    bind: $SNAP/usr/lib/mono
 
 apps:      
   gd-godot-engine-mono-snapcraft:
