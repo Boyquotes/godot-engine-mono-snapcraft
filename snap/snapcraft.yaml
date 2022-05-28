@@ -38,6 +38,15 @@ apps:
       - pulseaudio
       - audio-playback
 
+  gd-mono:
+    command: mono
+
+  gd-msbuild:
+    command: msbuild
+
+  gd-dotnet:
+    command: dotnet
+
 parts:
   gd-godot-engine-mono-snapcraft:
     plugin: nil
