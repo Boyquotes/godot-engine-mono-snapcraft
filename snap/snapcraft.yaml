@@ -109,7 +109,9 @@ parts:
       - libvorbis0a
       - libvorbisenc2
       - libvorbisfile3
+      - mono-roslyn
       - mono-complete
+      - mono-dbg
       - msbuild
 
 package-repositories:
