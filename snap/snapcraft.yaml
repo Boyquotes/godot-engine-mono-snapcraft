@@ -19,9 +19,9 @@ layout:
     bind: $SNAP/usr/lib/mono
 
 apps:      
-  gd-godot-engine-mono-snapcraft:
+  gd-godot:
     extensions: [gnome-3-38]
-    command: $SNAP/Godot_v3.4.4-stable_mono_x11_64/Godot_v3.4.4-stable_mono_x11.64
+    command: Godot_v3.4.4-stable_mono_x11_64/Godot_v3.4.4-stable_mono_x11.64
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
     plugs:
