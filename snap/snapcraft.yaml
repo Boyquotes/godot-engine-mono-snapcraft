@@ -39,12 +39,6 @@ apps:
       - pulseaudio
       - audio-playback
 
-  gd-mono:
-    command: usr/bin/mono
-
-  gd-msbuild:
-    command: usr/bin/msbuild
-
 parts:
   gd-godot-engine-mono-snapcraft:
     plugin: nil
@@ -54,30 +48,6 @@ parts:
       snapcraftctl pull
       git checkout "$(git describe --tags `git rev-list --tags --max-count=1`)" -b latest
       snapcraftctl set-version "$(git describe --tags | sed 's/v//' | sed "s/-g/%/"  | cut -d "%" -f1)"
-    stage-snaps:
-      - dotnet-sdk/latest/stable
-    stage-packages:
-      - libgl1-mesa-dri
-      - libglu1-mesa
-      - libgl1-mesa-glx
-      - libgles2-mesa
-      - libflac8
-      - libxcursor1
-      - libxi6
-      - libxinerama1
-      - libxrandr2
-      - libxrender1
-      - libasound2
-      - libasyncns0
-      - libogg0
-      - libpulse0
-      - libsndfile1
-      - libtheora0
-      - libvorbis0a
-      - libvorbisenc2
-      - libvorbisfile3
-      - mono-complete
-      - msbuild
 
   gd-godot:
     after: [gd-godot-engine-mono-snapcraft]
@@ -85,9 +55,6 @@ parts:
     source: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_mono_x11_64.zip
     override-build: |
       mv Godot_v3.4.4-stable_mono_x11_64 $SNAPCRAFT_PART_INSTALL/
-      tree $SNAPCRAFT_PART_INSTALL/
-    build-packages:
-      - tree
     stage-snaps:
       - dotnet-sdk/latest/stable
     stage-packages:
@@ -110,9 +77,7 @@ parts:
       - libvorbis0a
       - libvorbisenc2
       - libvorbisfile3
-      - mono-roslyn
       - mono-complete
-      - mono-dbg
       - msbuild
 
 package-repositories:
