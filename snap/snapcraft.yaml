@@ -24,6 +24,7 @@ apps:
     command: Godot_v3.4.4-stable_mono_x11_64/Godot_v3.4.4-stable_mono_x11.64
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
+      DOTNET_ROOT=$SNAP
     plugs:
       - desktop
       - desktop-legacy
@@ -121,6 +122,3 @@ package-repositories:
     key-id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
     key-server: hkp://keyserver.ubuntu.com:80
     url: https://download.mono-project.com/repo/ubuntu
-  - type: apt
-    formats: [deb]
-    url: https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
