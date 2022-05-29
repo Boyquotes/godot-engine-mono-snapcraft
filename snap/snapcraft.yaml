@@ -19,7 +19,7 @@ layout:
     bind: $SNAP/usr/lib/mono
 
 apps:      
-  gd-godot:
+  gd-godot-engine-mono-snapcraft:
     extensions: [gnome-3-38]
     command: Godot_v3.4.4-stable_mono_x11_64/Godot_v3.4.4-stable_mono_x11.64
     environment:
