@@ -82,6 +82,10 @@ parts:
     after: [gd-godot-engine-mono-snapcraft]
     plugin: dump
     source: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_mono_x11_64.zip
+    override-build: |
+      tree $SNAPCRAFT_PART_INSTALL/
+    build-packages:
+      - tree
     stage-snaps:
       - dotnet-sdk/latest/stable
     stage-packages:
