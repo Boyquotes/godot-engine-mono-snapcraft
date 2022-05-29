@@ -78,7 +78,7 @@ parts:
       - mono-complete
       - msbuild
 
-gd-godot:
+  gd-godot:
     after: [gd-godot-engine-mono-snapcraft]
     plugin: dump
     source: https://downloads.tuxfamily.org/godotengine/$SNAPCRAFT_PROJECT_VERSION/mono/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_64.zip
