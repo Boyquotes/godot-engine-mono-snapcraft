@@ -21,7 +21,7 @@ layout:
 apps:      
   gd-godot-engine-mono-snapcraft:
     extensions: [gnome-3-38]
-    command: godot-engine-mono/godot-engine-mono
+    command: $SNAP/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_64/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11.64
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
     plugs:
@@ -39,13 +39,10 @@ apps:
       - audio-playback
 
   gd-mono:
-    command: mono
+    command: usr/bin/mono
 
   gd-msbuild:
-    command: msbuild
-
-  gd-dotnet:
-    command: dotnet
+    command: usr/bin/msbuild
 
 parts:
   gd-godot-engine-mono-snapcraft:
@@ -56,58 +53,38 @@ parts:
       snapcraftctl pull
       git checkout "$(git describe --tags `git rev-list --tags --max-count=1`)" -b latest
       snapcraftctl set-version "$(git describe --tags | sed 's/v//' | sed "s/-g/%/"  | cut -d "%" -f1)"
-    override-build: |
-      # Python
-      python3 -c "import sys; print(sys.version)"
-      pip3 install scons
-      
-      # Version
-      python3 --version
-      pip3 --version
-      scons --version
-      mono --version
-      msbuild -version
-      dotnet --list-sdks
-      
-      # Scons
-      scons -j$(nproc) p=linuxbsd target=release_debug tools=true tests=false module_mono_enabled=yes mono_static=yes mono_glue=no
-      xvfb-run ./bin/godot.x11.opt.tools.64.mono --generate-mono-glue modules/mono/glue || true
-      scons -j$(nproc) p=linuxbsd target=release_debug tools=true tests=false module_mono_enabled=yes mono_static=yes mono_glue=yes
-      scons -j$(nproc) p=linuxbsd target=release_debug tools=no module_mono_enabled=yes
-      scons -j$(nproc) p=linuxbsd target=release tools=no module_mono_enabled=yes
-      
-      cd bin
-      mv godot.x11.opt.tools.64.mono godot-engine-mono
-      mkdir $SNAPCRAFT_PART_INSTALL/godot-engine-mono
-      mv * $SNAPCRAFT_PART_INSTALL/godot-engine-mono
-    build-snaps:
-      - dotnet-sdk/latest/stable
     stage-snaps:
       - dotnet-sdk/latest/stable
-    build-packages:
-      - git
-      - sed
-      - build-essential
-      - pkg-config
-      - libx11-dev
-      - libxcursor-dev
-      - libxinerama-dev
-      - libgl1-mesa-dev
-      - libglu-dev
-      - libasound2-dev
-      - libpulse-dev
-      - libdbus-1-dev
-      - libudev-dev
-      - libxi-dev
-      - libxrandr-dev
-      - yasm
-      - xvfb
-      - wget
-      - unzip
+    stage-packages:
+      - libgl1-mesa-dri
+      - libglu1-mesa
+      - libgl1-mesa-glx
+      - libgles2-mesa
+      - libflac8
+      - libxcursor1
+      - libxi6
+      - libxinerama1
+      - libxrandr2
+      - libxrender1
+      - libasound2
+      - libasyncns0
+      - libogg0
+      - libpulse0
+      - libsndfile1
+      - libtheora0
+      - libvorbis0a
+      - libvorbisenc2
+      - libvorbisfile3
       - mono-complete
-      - python3
-      - python3-pip
       - msbuild
+
+gd-godot:
+    after: [gd-godot-engine-mono-snapcraft]
+    plugin: dump
+    source:
+      - on amd64: https://downloads.tuxfamily.org/godotengine/$SNAPCRAFT_PROJECT_VERSION/mono/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_64.zip
+    stage-snaps:
+      - dotnet-sdk/latest/stable
     stage-packages:
       - libgl1-mesa-dri
       - libglu1-mesa
