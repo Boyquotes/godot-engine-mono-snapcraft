@@ -81,8 +81,7 @@ parts:
 gd-godot:
     after: [gd-godot-engine-mono-snapcraft]
     plugin: dump
-    source:
-      - on amd64: https://downloads.tuxfamily.org/godotengine/$SNAPCRAFT_PROJECT_VERSION/mono/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_64.zip
+    source: https://downloads.tuxfamily.org/godotengine/$SNAPCRAFT_PROJECT_VERSION/mono/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_64.zip
     stage-snaps:
       - dotnet-sdk/latest/stable
     stage-packages:
