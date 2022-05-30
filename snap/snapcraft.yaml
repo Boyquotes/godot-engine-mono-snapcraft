@@ -92,5 +92,6 @@ package-repositories:
     components: [main]
     suites: [focal]
     architectures: [amd64,armhf,arm64]
+    key-id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
     key-server: https://packages.microsoft.com/keys/microsoft.asc
     url: https://packages.microsoft.com/ubuntu/20.04/prod
