@@ -87,11 +87,11 @@ package-repositories:
     key-id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
     key-server: hkp://keyserver.ubuntu.com:80
     url: https://download.mono-project.com/repo/ubuntu
+    
   - type: apt
     formats: [deb]
     components: [main]
     suites: [focal]
     architectures: [amd64,armhf,arm64]
     key-id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
-    key-server: https://packages.microsoft.com/keys/microsoft.asc
     url: https://packages.microsoft.com/ubuntu/20.04/prod
