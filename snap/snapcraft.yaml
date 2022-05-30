@@ -62,8 +62,6 @@ parts:
       scons -j$(nproc) p=linuxbsd target=release_debug tools=true tests=false module_mono_enabled=yes mono_static=yes mono_glue=no
       xvfb-run ./bin/godot.x11.opt.tools.64.mono --generate-mono-glue modules/mono/glue || true
       scons -j$(nproc) p=linuxbsd target=release_debug tools=true tests=false module_mono_enabled=yes mono_static=yes mono_glue=yes
-      scons -j$(nproc) p=linuxbsd target=release_debug tools=no module_mono_enabled=yes
-      scons -j$(nproc) p=linuxbsd target=release tools=no module_mono_enabled=yes
       
       cd bin
       mv godot.x11.opt.tools.64.mono godot-engine-mono
@@ -98,6 +96,26 @@ parts:
       - mono-complete
       - msbuild
       - dotnet-sdk-6.0
+      - libgl1-mesa-dri
+      - libglu1-mesa
+      - libgl1-mesa-glx
+      - libgles2-mesa
+      - libflac8
+      - libxcursor1
+      - libxi6
+      - libxinerama1
+      - libxrandr2
+      - libxrender1
+      - libasound2
+      - libasyncns0
+      - libogg0
+      - libpulse0
+      - libsndfile1
+      - libtheora0
+      - libvorbis0a
+      - libvorbisenc2
+      - libvorbisfile3
+      - libwebp6
     stage-snaps:
       - code/latest/stable
 
