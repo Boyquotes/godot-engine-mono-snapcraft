@@ -22,8 +22,6 @@ apps:
   gd-godot-engine-mono-snapcraft:
     extensions: [gnome-3-38]
     command: godot-engine-mono/godot-engine-mono
-    environment:
-      LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
     plugs:
       - desktop
       - desktop-legacy
@@ -97,28 +95,11 @@ parts:
       - msbuild
       - dotnet-sdk-6.0
     stage-packages:
-      - libgl1-mesa-dri
-      - libglu1-mesa
-      - libgl1-mesa-glx
-      - libgles2-mesa
-      - libflac8
-      - libxcursor1
-      - libxi6
-      - libxinerama1
-      - libxrandr2
-      - libxrender1
-      - libasound2
-      - libasyncns0
-      - libogg0
-      - libpulse0
-      - libsndfile1
-      - libtheora0
-      - libvorbis0a
-      - libvorbisenc2
-      - libvorbisfile3
       - mono-complete
       - msbuild
       - dotnet-sdk-6.0
+    stage-snaps:
+      - code/latest/stable
 
 package-repositories:
   - type: apt
