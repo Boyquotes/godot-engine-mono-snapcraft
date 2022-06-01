@@ -116,8 +116,6 @@ parts:
       - libvorbisenc2
       - libvorbisfile3
       - libwebp6
-    stage-snaps:
-      - code/latest/stable
 
 package-repositories:
   - type: apt
