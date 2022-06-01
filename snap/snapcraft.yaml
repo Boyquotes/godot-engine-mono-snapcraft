@@ -93,8 +93,6 @@ parts:
       - msbuild
       - dotnet-sdk-6.0
     stage-packages:
-      - mono-complete
-      - msbuild
       - dotnet-sdk-6.0
       - libgtk-3-0
       - libgl1-mesa-dri
