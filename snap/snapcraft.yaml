@@ -96,6 +96,7 @@ parts:
       - mono-complete
       - msbuild
       - dotnet-sdk-6.0
+      - libgtk-3-0
       - libgl1-mesa-dri
       - libglu1-mesa
       - libgl1-mesa-glx
